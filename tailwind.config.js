@@ -21,7 +21,35 @@ export default {
     )
   ],
   theme: {
-    extend: {},
+    extend: {
+      scale: ['hover'],
+      keyframes: {
+        slidein: {
+          from: {
+            opacity: "0",
+            transform: "translateY(-10px)",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateY(0)",
+          },
+        },
+
+        slideright:{
+            from: {
+                opacity: "0",
+            },
+            to: {
+                opacity: "1",
+                transform: "translateX(0)",
+            },
+        }
+      },
+      animation: {
+        slidein: "slidein 1s ease var(--slidein-delay, 0) forwards",
+        slideright: "slideright 1s ease var(--slideright-delay, 0) forwards"
+      },
+    },
   },
   plugins: [catppuccin, skeleton],
 }
