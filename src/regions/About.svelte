@@ -1,4 +1,25 @@
-<div id="about" class="h-svh w-full dark:mocha latte bg-base dark:bg-base text-text">
+<script lang="ts">
+    import { onMount, onDestroy } from 'svelte';
+    let about:HTMLDivElement | null = null;
+    let isContentBigger = false;
+
+    const checkSize = () => {
+        if (about) {
+            isContentBigger = about.scrollHeight > window.innerHeight;
+        }
+    };
+
+    onMount(() => {
+        window.addEventListener('resize', checkSize);
+        checkSize();
+    });
+
+    onDestroy(() => {
+        window.removeEventListener('resize', checkSize);
+    });
+</script>
+
+<div id="about" bind:this={about} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class="w-full dark:mocha latte bg-base dark:bg-base text-text">
     <div class="text-center">
         <h2 class="text-4xl font-bold"> About Me</h2>
     </div>

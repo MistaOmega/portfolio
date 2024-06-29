@@ -1,4 +1,25 @@
-<div id="contact" class="h-svh w-full dark:mocha latte bg-base dark:bg-base text-text">
+<script lang="ts">
+    import { onMount, onDestroy } from 'svelte';
+    let contact:HTMLDivElement | null = null;
+    let isContentBigger = false;
+
+    const checkSize = () => {
+        if (contact) {
+            isContentBigger = contact.scrollHeight > window.innerHeight;
+        }
+    };
+
+    onMount(() => {
+        window.addEventListener('resize', checkSize);
+        checkSize();
+    });
+
+    onDestroy(() => {
+        window.removeEventListener('resize', checkSize);
+    });
+</script>
+
+<div id="contact" bind:this={contact} class:h-fit={isContentBigger} class="h-svh w-full dark:mocha latte bg-base dark:bg-base text-text">
     <div class="text-center">
         <h2 class="text-4xl font-bold">Contact</h2>
     </div>

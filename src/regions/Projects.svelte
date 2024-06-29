@@ -1,8 +1,26 @@
-<script>
+<script lang="ts">
+    import { onMount, onDestroy } from 'svelte';
     import NavButton from "../lib/NavButton.svelte";
+    let projects:HTMLDivElement | null = null;
+    let isContentBigger = false;
+
+    const checkSize = () => {
+        if (projects) {
+            isContentBigger = projects.scrollHeight > window.innerHeight;
+        }
+    };
+
+    onMount(() => {
+        window.addEventListener('resize', checkSize);
+        checkSize();
+    });
+
+    onDestroy(() => {
+        window.removeEventListener('resize', checkSize);
+    });
 </script>
 
-<div id="projects" class="h-svh w-full dark:mocha latte bg-base dark:bg-base text-text">
+<div id="projects" bind:this={projects} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class:w-full={true} class:dark:mocha={true} class:latte={true} class:bg-base={true} class:dark:bg-base={true} class:text-text={true}>
     <div class="text-center">
         <h2 class="text-4xl font-bold">Projects</h2>
     </div>
