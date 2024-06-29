@@ -5,7 +5,7 @@
     <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 my-8 p-8 bg-crust dark:bg-mantle">
         <h3 class="text-2xl font-bold mt-2 text-peach">Who am I?</h3>
         <p class="mt-4 text-lg">
-            I am a Full-Stack Developer with a passion for technology and a love for learning.
+            I am a Full-Stack Developer with a passion for technology and an adoration for learning.
             I have experience in a variety of technologies, including Java, C#, and JavaScript, and have worked on a variety of projects, from web applications to game modifications.
         </p>
     </div>
