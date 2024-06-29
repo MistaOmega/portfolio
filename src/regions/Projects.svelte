@@ -6,7 +6,7 @@
     <div class="text-center">
         <h2 class="text-4xl font-bold">Projects</h2>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-16 auto-rows-max">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 p-4 lg:px-32 lg:py-8 2xl:px-96 2xl:py-16 auto-rows-max">
         <div class="bg-crust dark:bg-mantle rounded-lg p-4">
             <h3 class="text-2xl font-bold">Kinesis Connect</h3>
             <p class="text-lg text-peach">A sales platform for Radius Telematics, built using ASP.NET and the .NET Framework, with built-in API</p>

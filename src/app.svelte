@@ -2,6 +2,7 @@
     import Navigation from "./lib/Navigation.svelte";
     import About from "./regions/About.svelte";
     import Projects from "./regions/Projects.svelte";
+    import Contact from "./regions/Contact.svelte";
     let isNameHovered = false;
 </script>
 
@@ -23,6 +24,10 @@
 </main>
 <hr class="w-2/3 h-1 mx-auto my-4 border-0 rounded md:my-10 bg-peach">
 <Projects/>
+<hr class="w-2/3 h-1 mx-auto my-4 border-0 rounded md:my-10 bg-peach">
 <About/>
+<hr class="w-2/3 h-1 mx-auto my-4 border-0 rounded md:my-10 bg-peach">
+<Contact/>
+
 
 
