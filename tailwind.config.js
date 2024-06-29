@@ -1,7 +1,5 @@
 import catppuccin from "@catppuccin/tailwindcss";
 
-
-
 // @ts-check
 import { join } from 'path';
 
@@ -14,7 +12,6 @@ export default {
   darkMode: 'class',
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    // 3. Append the path to the Skeleton package
     join(require.resolve(
             '@skeletonlabs/skeleton'),
         '../**/*.{html,js,svelte,ts}'
@@ -22,7 +19,6 @@ export default {
   ],
   theme: {
     extend: {
-      scale: ['hover'],
       keyframes: {
         slidein: {
           from: {
@@ -36,13 +32,14 @@ export default {
         },
 
         slideright:{
-            from: {
-                opacity: "0",
-            },
-            to: {
-                opacity: "1",
-                transform: "translateX(0)",
-            },
+          from: {
+            transform: "translateX(-50px)",
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+            transform: "translateX(0)",
+          },
         }
       },
       animation: {
