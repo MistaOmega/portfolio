@@ -3,6 +3,7 @@
     import IcSharpDiscord from '~icons/ic/sharp-discord';
     import MdiGithub from '~icons/mdi/github';
     import MdiLinkedin from '~icons/mdi/linkedin';
+    import MdiExternalLink from '~icons/mdi/external-link';
     let contact:HTMLDivElement | null = null;
     let isContentBigger = false;
 
@@ -28,23 +29,29 @@
     </div>
     <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 my-8 p-8 bg-surface0 dark:bg-mantle">
         <div id="contact" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 p-4">
-            <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
-                <h3 class="text-6xl font-bold flex justify-center items-center">
-                    <IcSharpDiscord/>
+            <a href="https://github.com/MistaOmega" target="_blank" class="bg-surface0 dark:bg-mantle rounded-lg p-4">
+                <h3 class="text-6xl mt-2 font-bold flex justify-center items-center">
+                    <MdiGithub/>
                 </h3>
                 <p class="text-xl font-bold text-peach text-center hover:text-sapphire">MistaOmega</p>
-            </div>
-            <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
+                <p class="text-xl mt-2 font-bold text-sapphire flex justify-center items-center">
+                    <MdiExternalLink/>
+                </p>
+            </a>
+            <a href="https://linkedin.com/in/jfmnash" target="_blank" class="bg-surface0 dark:bg-mantle rounded-lg p-4">
                 <h3 class="text-6xl font-bold flex justify-center items-center">
                     <MdiLinkedin/>
                 </h3>
                 <p class="text-xl font-bold text-peach text-center hover:text-sapphire">Jack Nash</p>
-            </div>
+                <p class="text-xl mt-2 font-bold text-sapphire flex justify-center items-center">
+                    <MdiExternalLink/>
+                </p>
+            </a>
             <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
                 <h3 class="text-6xl font-bold flex justify-center items-center">
-                    <MdiGithub/>
+                    <IcSharpDiscord/>
                 </h3>
-                <p class="text-xl font-bold text-peach text-center hover:text-sapphire">MistaOmega</p>
+                <p class="text-xl font-bold text-peach text-center">MistaOmega</p>
             </div>
         </div>
     </div>

@@ -39,7 +39,8 @@
     <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 mt-8 p-8 bg-surface0 dark:bg-mantle">
         <h3 class="text-2xl font-bold mt-2 text-peach">What do you do in your spare time?</h3>
         <p class="mt-4 text-lg">
-            In my spare time, I enjoy working on personal projects, playing video games, spending time at the gym, and learning new technologies.
+            In my spare time, I enjoy playing video games and going to the gym.
+            I also enjoy learning new technologies and languages, and have recently been learning Rust and Go.
         </p>
     </div>
     <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96  mt-8 p-8 bg-surface0 dark:bg-mantle">
