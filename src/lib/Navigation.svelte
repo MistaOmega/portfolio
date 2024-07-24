@@ -2,7 +2,7 @@
     import { LightSwitch } from "@skeletonlabs/skeleton";
     import { onMount } from "svelte";
 
-    let active = 'home1';
+    let active = 'home';
     let isMenuOpen = false;
 
     const scrollTo = (id: string, event: MouseEvent) => {
@@ -34,7 +34,7 @@
         </button>
     </div>
     <ul class="flex-col md:flex-row md:flex space-x-0 md:space-x-4 mt-4 md:mt-0 md:text-left text-center py-4 md:py-0" class:hidden={!isMenuOpen && 'md:flex'} class:bg-crust={isMenuOpen} class:justify-center={isMenuOpen} class:items-center={isMenuOpen}>
-        <li class="my-4 md:my-0"><a href="#main" class:active={active === 'home'} class="py-2 px-4 rounded-md {active === 'home' ? 'text-sapphire' : 'hover:bg-peach hover:text-base'}" on:click={(event) => {active = 'home1'; scrollTo('main', event);}}>Home</a></li>
+        <li class="my-4 md:my-0"><a href="#main" class:active={active === 'home'} class="py-2 px-4 rounded-md {active === 'home' ? 'text-sapphire' : 'hover:bg-peach hover:text-base'}" on:click={(event) => {active = 'home'; scrollTo('main', event);}}>Home</a></li>
         <li class="my-4 md:my-0" class:hidden={isMenuOpen}>|</li>
         <li class="my-4 md:my-0"><a href="#projects" class:active={active === 'projects'} class= "py-2 px-4 rounded-md {active === 'projects' ? 'text-sapphire' : 'hover:bg-peach hover:text-base'}" on:click={(event) => {active = 'projects'; scrollTo('projects', event);}}>Projects</a></li>
         <li class="my-4 md:my-0" class:hidden={isMenuOpen}>|</li>
