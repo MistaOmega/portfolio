@@ -1,5 +1,8 @@
 <script lang="ts">
     import { onMount, onDestroy } from 'svelte';
+    import IcSharpDiscord from '~icons/ic/sharp-discord';
+    import MdiGithub from '~icons/mdi/github';
+    import MdiLinkedin from '~icons/mdi/linkedin';
     let contact:HTMLDivElement | null = null;
     let isContentBigger = false;
 
@@ -23,10 +26,27 @@
     <div class="text-center">
         <h2 class="text-4xl font-bold">Contact</h2>
     </div>
-    <div class="mx-96 my-8 p-8 bg-crust dark:bg-mantle">
-        <h3 class="text-2xl font-bold mt-2 text-peach">How can you contact me?</h3>
-        <p class="mt-4 text-lg">
-            You can contact me via email at <a href="mailto:"/>
-        </p>
+    <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 my-8 p-8 bg-surface0 dark:bg-mantle">
+        <div id="contact" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 p-4">
+            <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
+                <h3 class="text-6xl font-bold flex justify-center items-center">
+                    <IcSharpDiscord/>
+                </h3>
+                <p class="text-xl font-bold text-peach text-center hover:text-sapphire">MistaOmega</p>
+            </div>
+            <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
+                <h3 class="text-6xl font-bold flex justify-center items-center">
+                    <MdiLinkedin/>
+                </h3>
+                <p class="text-xl font-bold text-peach text-center hover:text-sapphire">Jack Nash</p>
+            </div>
+            <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
+                <h3 class="text-6xl font-bold flex justify-center items-center">
+                    <MdiGithub/>
+                </h3>
+                <p class="text-xl font-bold text-peach text-center hover:text-sapphire">MistaOmega</p>
+            </div>
+        </div>
     </div>
+
 </div>

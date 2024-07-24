@@ -9,7 +9,7 @@
     }
 </script>
 
-<nav class="latte dark:mocha bg-crust dark:bg-base text-text p-4 fixed w-full">
+<nav class="latte dark:mocha bg-surface0 dark:bg-base text-text p-4 fixed w-full">
     <ul class="flex space-x-4">
         <li><a href="#main" class:active={active === 'home'} class="px-4 py-2 rounded-md {active === 'home' ? 'text-sapphire' : 'hover:bg-peach hover:text-base'}" on:click={(event) => {active = 'home'; scrollTo('main', event);}}>Home</a></li>
         <li>|</li>
