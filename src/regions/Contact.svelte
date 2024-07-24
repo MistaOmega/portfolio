@@ -27,7 +27,7 @@
     <div class="text-center">
         <h2 class="text-4xl font-bold">Contact</h2>
     </div>
-    <div class="mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 my-8 p-8 bg-surface0 dark:bg-mantle">
+    <div class="mx-4 md:mx-16 lg:mx-32 xl:mx-64 2xl:mx-96 my-8 p-8 bg-surface0 dark:bg-mantle">
         <div id="contact" class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 p-4">
             <a href="https://github.com/MistaOmega" target="_blank" class="bg-surface0 dark:bg-mantle rounded-lg p-4">
                 <h3 class="text-6xl mt-2 font-bold flex justify-center items-center">
@@ -37,6 +37,7 @@
                 <p class="text-xl mt-2 font-bold text-sapphire flex justify-center items-center">
                     <MdiExternalLink/>
                 </p>
+                <hr class="w-full h-0.5 mx-auto my-4 border-0 rounded bg-peach lg:w-0">
             </a>
             <a href="https://linkedin.com/in/jfmnash" target="_blank" class="bg-surface0 dark:bg-mantle rounded-lg p-4">
                 <h3 class="text-6xl font-bold flex justify-center items-center">
@@ -46,6 +47,7 @@
                 <p class="text-xl mt-2 font-bold text-sapphire flex justify-center items-center">
                     <MdiExternalLink/>
                 </p>
+                <hr class="w-full h-0.5 mx-auto my-4 border-0 rounded bg-peach lg:w-0">
             </a>
             <div class="bg-surface0 dark:bg-mantle rounded-lg p-4">
                 <h3 class="text-6xl font-bold flex justify-center items-center">
