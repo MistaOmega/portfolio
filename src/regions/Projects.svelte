@@ -86,7 +86,7 @@
         </div>
         <div class="bg-crust dark:bg-mantle rounded-lg p-4">
             <h3 class="text-2xl font-bold">Personal Portfolio</h3>
-            <p class="text-lg text-peach">You're looking at it</p>
+            <p class="text-lg text-peach">You're looking at it, a static portfolio, designed with Svelte</p>
             <NavButton text="GitHub" onClick={() => window.open('https://github.com/mistaomega/nitrox', '_blank')}/>
             <h4 class="text-xl font-bold mt-8">Technologies used:</h4>
             <ul class="list-disc list-inside">
