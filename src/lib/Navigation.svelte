@@ -25,7 +25,7 @@
     });
 </script>
 
-<nav class="latte dark:mocha bg-surface0 dark:bg-base text-text p-4 fixed w-full z-50">
+<nav class="latte dark:mocha bg-crust dark:bg-base text-text p-4 fixed w-full z-50">
     <div class="flex justify-end items-center">
         <button class="md:hidden" on:click={toggleMenu}>
             <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class:rotate-45={isMenuOpen}>
