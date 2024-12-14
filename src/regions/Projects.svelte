@@ -99,5 +99,18 @@
                 <li>Node.JS</li>
             </ul>
         </div>
+        <div class="bg-crust dark:bg-mantle rounded-lg p-4">
+            <h3 class="text-2xl font-bold">Chappell</h3>
+            <p class="text-lg text-peach">A Discord bot - Features book recommendations, game recommendations, YouTube channel upload watchers and much more</p>
+            <NavButton text="GitHub" onClick={() => window.open('https://github.com/mistaomega/chappell', '_blank')}/>
+            <h4 class="text-xl font-bold mt-8">Technologies used:</h4>
+            <ul class="list-disc list-inside">
+                <li>Node.JS</li>
+                <li>Discord.JS</li>
+                <li>YouTube API</li>
+                <li>RAWG API</li>
+                <li>SQLite3</li>
+            </ul>
+        </div>
     </div>
 </div>

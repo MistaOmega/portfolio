@@ -1,21 +1,16 @@
 import catppuccin from "@catppuccin/tailwindcss";
-
-// @ts-check
 import { join } from 'path';
-
-// 1. Import the Skeleton plugin
 import { skeleton } from '@skeletonlabs/tw-plugin';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  // 2. Opt for dark mode to be handled via the class method
   darkMode: 'class',
   content: [
     './src/**/*.{html,js,svelte,ts}',
-    join(require.resolve(
-            '@skeletonlabs/skeleton'),
-        '../**/*.{html,js,svelte,ts}'
-    )
+    join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
   ],
   theme: {
     extend: {
@@ -30,8 +25,7 @@ export default {
             transform: "translateY(0)",
           },
         },
-
-        slideright:{
+        slideright: {
           from: {
             transform: "translateX(-50px)",
             opacity: "0",
@@ -50,4 +44,3 @@ export default {
   },
   plugins: [catppuccin, skeleton],
 }
-
