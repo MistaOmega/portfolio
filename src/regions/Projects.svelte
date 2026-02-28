@@ -20,7 +20,7 @@
     });
 </script>
 
-<div id="projects" bind:this={projects} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class:w-full={true} class:dark:mocha={true} class:latte={true} class:bg-base={true} class:dark:bg-base={true} class:text-text={true}>
+to<div id="projects" bind:this={projects} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class="w-full bg-base text-text">
     <div class="text-center">
         <h2 class="text-4xl font-bold">Projects</h2>
     </div>

@@ -19,7 +19,7 @@
     });
 </script>
 
-<div id="about" bind:this={about} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class="w-full dark:mocha latte bg-base dark:bg-base text-text">
+<div id="about" bind:this={about} class:h-fit={isContentBigger} class:h-svh={!isContentBigger} class="w-full bg-base text-text">
     <div class="text-center">
         <h2 class="text-4xl font-bold"> About Me</h2>
     </div>
@@ -48,7 +48,7 @@
         <ul class="mt-4">
             <li class="text-lg">I'm a fan of Soulsborne and Soulslike games</li>
             <li class="text-lg">I play American Football, as a running back for a team called the Chester Romans</li>
-            <li class="text-lg">I have a small YouTube channel, where I've made quick, shorts-style videos on programming, which you can check out <a href="https://youtube.com/@mistaomega" target="_blank" class="text-peach font-bold hover:text-sapphire">here!</a></li>
+            <li class="text-lg">I have a small YouTube channel with over 2000 subscribers, where I've made quick, shorts-style videos on programming, which you can check out <a href="https://youtube.com/@mistaomega" target="_blank" class="text-peach font-bold hover:text-sapphire">here!</a></li>
         </ul>
     </div>
 </div>

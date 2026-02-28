@@ -23,7 +23,7 @@
     });
 </script>
 
-<div id="contact" bind:this={contact} class:h-fit={isContentBigger} class="h-svh w-full dark:mocha latte bg-base dark:bg-base text-text">
+<div id="contact" bind:this={contact} class:h-fit={isContentBigger} class="h-svh w-full bg-base text-text">
     <div class="text-center">
         <h2 class="text-4xl font-bold">Contact</h2>
     </div>

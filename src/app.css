@@ -1,6 +1,70 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-text: var(--catppuccin-color-text);
+  --color-base: var(--catppuccin-color-base);
+  --color-mantle: var(--catppuccin-color-mantle);
+  --color-crust: var(--catppuccin-color-crust);
+  --color-surface0: var(--catppuccin-color-surface0);
+  --color-sapphire: var(--catppuccin-color-sapphire);
+  --color-peach: var(--catppuccin-color-peach);
+}
+
+@utility animate-slidein {
+  animation: slidein 1s ease var(--slidein-delay, 0) forwards;
+}
+
+@utility animate-slideright {
+  animation: slideright 1s ease var(--slideright-delay, 0) forwards;
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideright {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Latte + animation defaults */
+:root {
+  --slidein-delay: 0s;
+  --slideright-delay: 0s;
+  --catppuccin-color-text: #4c4f69;
+  --catppuccin-color-base: #eff1f5;
+  --catppuccin-color-mantle: #e6e9ef;
+  --catppuccin-color-crust: #dce0e8;
+  --catppuccin-color-surface0: #ccd0da;
+  --catppuccin-color-sapphire: #209fb5;
+  --catppuccin-color-peach: #fe640b;
+}
+
+/* Mocha */
+html.dark {
+  --catppuccin-color-text: #cdd6f4;
+  --catppuccin-color-base: #1e1e2e;
+  --catppuccin-color-mantle: #181825;
+  --catppuccin-color-crust: #11111b;
+  --catppuccin-color-surface0: #313244;
+  --catppuccin-color-sapphire: #74c7ec;
+  --catppuccin-color-peach: #fab387;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
