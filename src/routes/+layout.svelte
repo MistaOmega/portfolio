@@ -25,11 +25,11 @@
 
 <MetaTags
 	title="Jack Nash | Full-Stack Engineer"
-	description="Portfolio of Jack Nash, a full-stack and backend developer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK"
+	description="Portfolio of Jack Nash, a full-stack engineer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK"
 	openGraph={{
 		title: 'Jack Nash',
 		description:
-			'Portfolio of Jack Nash, a full-stack and backend developer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK.',
+			'Portfolio of Jack Nash, a full-stack engineer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK.',
 		type: 'website'
 	}}
 />
