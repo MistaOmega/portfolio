@@ -15,6 +15,9 @@ dist
 dist-ssr
 *.local
 
+# Git worktrees
+.worktrees
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -25,3 +28,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/build/
+/dist/
+/node_modules/
+/.svelte-kit
+.vercel
