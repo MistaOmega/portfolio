@@ -18,7 +18,7 @@
 		href="/#projects"
 		class="mb-8 inline-flex items-center gap-2 text-sm text-subtext transition-colors hover:text-text"
 	>
-		<MdiArrowLeft class="text-base" />
+		<MdiArrowLeft class="text-peach" />
 		Back to portfolio
 	</a>
 
