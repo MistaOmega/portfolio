@@ -103,7 +103,15 @@
             fillBase();
             seedParticles();
 
-            function draw() {
+            const TARGET_FRAME_MS = 1000 / 60;
+            let lastTime = 0;
+
+            function draw(timestamp: number) {
+                const elapsed = lastTime ? timestamp - lastTime : TARGET_FRAME_MS;
+                // clamp so a backgrounded tab doesn't cause a huge jump
+                const dt = Math.min(elapsed / TARGET_FRAME_MS, 3);
+                lastTime = timestamp;
+
                 ctx.fillStyle = fadeStyle;
                 ctx.fillRect(0, 0, w, h);
 
@@ -111,8 +119,8 @@
                     // we want to direct the particle at an angle based on the noise function
                     // noise 2d will give us a value between -1 and 1, which we'll use to determine the angle
                     const angle = noise2D(p.x * NOISE_SCALE + time, p.y * NOISE_SCALE) * Math.PI * 4;
-                    p.x += Math.cos(angle) * p.speed;
-                    p.y += Math.sin(angle) * p.speed;
+                    p.x += Math.cos(angle) * p.speed * dt;
+                    p.y += Math.sin(angle) * p.speed * dt;
 
                     if (p.x < 0) p.x = w;
                     else if (p.x > w) p.x = 0;
@@ -135,7 +143,7 @@
 
                     // fade out, teleport, fade back in
                     if (p.dying) {
-                        p.alpha -= FADE_SPEED;
+                        p.alpha -= FADE_SPEED * dt;
                         if (p.alpha <= 0) {
                             p.x = Math.random() * w;
                             p.y = Math.random() * h;
@@ -148,7 +156,7 @@
                             p.checkY = p.y;
                         }
                     } else if (p.alpha < PARTICLE_ALPHA) {
-                        p.alpha = Math.min(p.alpha + FADE_SPEED, PARTICLE_ALPHA);
+                        p.alpha = Math.min(p.alpha + FADE_SPEED * dt, PARTICLE_ALPHA);
                     }
 
                     if (p.alpha <= 0) continue;
@@ -159,11 +167,11 @@
                     ctx.fill();
                 }
 
-                time += 0.0003;
+                time += 0.0003 * dt;
                 rafId = requestAnimationFrame(draw);
             }
 
-            draw();
+            rafId = requestAnimationFrame(draw);
 
             function onResize() {
                 w = canvas.width = window.innerWidth;
