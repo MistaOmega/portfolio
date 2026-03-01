@@ -14,7 +14,7 @@
 				document.documentElement.classList.add('dark');
 			}
 		</script>
-		<style>body{background:#eff1f5}html.dark body{background:#1e1e2e}</style>
+		<style>body{background:#eff1f5}html.dark body{background:#1e1e2e}html:not([data-ready]){visibility:hidden}</style>
 		%sveltekit.head%
 	</head>
 	<body class="latte bg-base min-h-screen" data-sveltekit-preload-data="hover">

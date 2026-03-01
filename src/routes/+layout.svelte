@@ -2,10 +2,15 @@
 	import '../app.css';
 	import Navigation from '$lib/Navigation.svelte';
 	import FlowField from '$lib/components/FlowField.svelte';
+	import { onMount } from 'svelte';
 	import { onNavigate } from '$app/navigation';
 	import { MetaTags } from 'svelte-meta-tags';
 
 	let { children } = $props();
+
+	onMount(() => {
+		document.documentElement.setAttribute('data-ready', '');
+	});
 
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
