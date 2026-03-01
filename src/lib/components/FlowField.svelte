@@ -56,7 +56,7 @@
 			const styleProps = getComputedStyle(document.documentElement);
 			const get = (k: string) => styleProps.getPropertyValue(k).trim();
 			const isDark = document.documentElement.classList.contains('dark');
-			const base = isDark ? get('--catppuccin-color-base') : '#ffffff';
+			const base = isDark ? '#26262F' : '#ffffff'
 			const [r, g, b] = hexToRgb(base);
 			fadeStyle = `rgba(${r},${g},${b},${FADE_ALPHA})`;
 			accentColors = [
@@ -89,8 +89,8 @@
 		}
 
 		function fillBase() {
-			const s = getComputedStyle(document.documentElement);
-			const base = s.getPropertyValue('--catppuccin-color-base').trim();
+            const isDark = document.documentElement.classList.contains('dark');
+			const base = isDark ? '#26263F' : '#ffffff'
             console.log(base)
 			const [r, g, b] = hexToRgb(base);
 			ctx.fillStyle = `rgb(${r},${g},${b})`;

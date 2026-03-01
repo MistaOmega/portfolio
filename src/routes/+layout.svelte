@@ -29,8 +29,8 @@
 	}}
 />
 
-<FlowField />
 <Navigation />
+<FlowField />
 <div class="min-h-screen text-text">
 	{@render children()}
 </div>
