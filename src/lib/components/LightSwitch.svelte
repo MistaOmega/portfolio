@@ -3,7 +3,7 @@
     import MdiWeatherSunny from '~icons/mdi/weather-sunny';
     import MdiWeatherNight from '~icons/mdi/weather-night';
 
-    let isDark = $state(false);
+    let isDark = $state(true);
     const toggleDark = () => {
         isDark = !isDark;
         document.documentElement.classList.toggle('dark', isDark);
