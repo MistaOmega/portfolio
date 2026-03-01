@@ -94,7 +94,6 @@
             function fillBase() {
                 const isDark = document.documentElement.classList.contains('dark');
                 const base = isDark ? '#26263F' : '#ffffff'
-                console.log(base)
                 const [r, g, b] = hexToRgb(base);
                 ctx.fillStyle = `rgb(${r},${g},${b})`;
                 ctx.fillRect(0, 0, w, h);
