@@ -237,4 +237,4 @@
     });
 </script>
 
-<canvas bind:this={canvas} class="pointer-events-none fixed inset-0 -z-10"></canvas>
+<canvas bind:this={canvas} class="pointer-events-none fixed inset-0 -z-10 w-full h-full"></canvas>
