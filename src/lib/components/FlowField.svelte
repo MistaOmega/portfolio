@@ -174,7 +174,9 @@
             rafId = requestAnimationFrame(draw);
 
             function onResize() {
-                w = canvas.width = window.innerWidth;
+                const newW = window.innerWidth;
+                if (newW === w) return; // should make mobile behave
+                w = canvas.width = newW;
                 h = canvas.height = window.innerHeight;
                 fillBase();
                 seedParticles();
