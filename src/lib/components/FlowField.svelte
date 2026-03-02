@@ -48,8 +48,12 @@
         function init() {
             const ctx = canvas.getContext('2d')!;
             const noise2D = createNoise2D();
-            let w = (canvas.width = window.innerWidth);
-            let h = (canvas.height = window.innerHeight);
+            const dpr = window.devicePixelRatio || 1;
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            canvas.width = w * dpr;
+            canvas.height = h * dpr;
+            ctx.scale(dpr, dpr);
             let time = 0;
             let fadeStyle = '';
             let accentColors: string[] = [];
@@ -175,9 +179,12 @@
 
             function onResize() {
                 const newW = window.innerWidth;
-                if (newW === w) return; // should make mobile behave
-                w = canvas.width = newW;
-                h = canvas.height = window.innerHeight;
+                if (newW === w) return; // stops mobile forced refresh
+                w = newW;
+                h = window.innerHeight;
+                canvas.width = w * dpr;
+                canvas.height = h * dpr;
+                ctx.scale(dpr, dpr);
                 fillBase();
                 seedParticles();
             }
