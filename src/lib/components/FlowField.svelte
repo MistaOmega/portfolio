@@ -4,7 +4,8 @@
 
     let canvas: HTMLCanvasElement;
 
-    const NOISE_SCALE      = 0.0025;
+    const DESKTOP_NOISE_SCALE = 0.0025;
+    const MOBILE_NOISE_SCALE  = 0.004;  // tighter patterns fill the smaller viewport
     const BASE_SPEED       = 1.0;
     const FADE_ALPHA       = 0.04;
     const PARTICLE_ALPHA   = 0.4;
@@ -68,12 +69,14 @@
                 ctx.scale(dpr, dpr);
             }
 
+            function baseColor() {
+                return document.documentElement.classList.contains('dark') ? '#26263F' : '#F3F3F3';
+            }
+
             function readTheme() {
                 const style = getComputedStyle(document.documentElement);
                 const get = (k: string) => style.getPropertyValue(k).trim();
-                const isDark = document.documentElement.classList.contains('dark');
-                const base = isDark ? '#26263F' : '#F3F3F3';
-                const [r, g, b] = hexToRgb(base);
+                const [r, g, b] = hexToRgb(baseColor());
                 fadeStyle = `rgba(${r},${g},${b},${FADE_ALPHA})`;
                 accentColors = [
                     get('--catppuccin-color-sapphire'),
@@ -84,9 +87,7 @@
             }
 
             function fillBase() {
-                const isDark = document.documentElement.classList.contains('dark');
-                const base = isDark ? '#26263F' : '#F3F3F3';
-                const [r, g, b] = hexToRgb(base);
+                const [r, g, b] = hexToRgb(baseColor());
                 ctx.fillStyle = `rgb(${r},${g},${b})`;
                 ctx.fillRect(0, 0, w, h);
             }
@@ -121,18 +122,19 @@
                 const dt = Math.min(elapsed / TARGET_FRAME_MS, 3);
                 lastTime = timestamp;
 
-                const radius = w < MOBILE_BP ? MOBILE_RADIUS : DESKTOP_RADIUS;
+                const isMobile = w < MOBILE_BP;
+                const radius     = isMobile ? MOBILE_RADIUS : DESKTOP_RADIUS;
+                const noiseScale = isMobile ? MOBILE_NOISE_SCALE : DESKTOP_NOISE_SCALE;
 
                 ctx.fillStyle = fadeStyle;
                 ctx.fillRect(0, 0, w, h);
 
                 for (const p of particles) {
-                    const angle = noise2D(p.x * NOISE_SCALE + time, p.y * NOISE_SCALE) * Math.PI * 4;
+                    const angle = noise2D(p.x * noiseScale + time, p.y * noiseScale) * Math.PI * 4;
                     p.x += Math.cos(angle) * p.speed * dt;
                     p.y += Math.sin(angle) * p.speed * dt;
 
-                    if (p.x < 0) p.x = w; else if (p.x > w) p.x = 0;
-                    if (p.y < 0) p.y = h; else if (p.y > h) p.y = 0;
+                    if (!p.dying && (p.x < 0 || p.x > w || p.y < 0 || p.y > h)) p.dying = true;
 
                     if (--p.checkTimer <= 0) {
                         const dx = p.x - p.checkX;
