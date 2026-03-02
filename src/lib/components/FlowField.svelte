@@ -47,7 +47,6 @@
 
     onMount(() => {
         let rafId: number;
-        let scrollTimer: ReturnType<typeof setTimeout>;
         let cleanup: (() => void) | null = null;
 
         function init() {
@@ -197,20 +196,7 @@
                 }
             }
 
-            function onScroll() {
-                if (!scrollTimer) {
-                    cancelAnimationFrame(rafId);
-                }
-                clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    scrollTimer = undefined as unknown as ReturnType<typeof setTimeout>;
-                    lastTime = 0;
-                    rafId = requestAnimationFrame(draw);
-                }, 150);
-            }
-
             window.addEventListener('resize', onResize);
-            window.addEventListener('scroll', onScroll, { passive: true });
 
             const themeObserver = new MutationObserver(onThemeChange);
             themeObserver.observe(document.documentElement, {
@@ -220,9 +206,7 @@
 
             cleanup = () => {
                 cancelAnimationFrame(rafId);
-                clearTimeout(scrollTimer);
                 window.removeEventListener('resize', onResize);
-                window.removeEventListener('scroll', onScroll);
                 themeObserver.disconnect();
             };
         }
