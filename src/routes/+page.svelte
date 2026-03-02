@@ -7,7 +7,7 @@
 </script>
 
 <Hero />
-<Skills />
 <Experience />
 <Projects />
+<Skills />
 <Contact />
