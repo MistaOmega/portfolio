@@ -3,6 +3,7 @@
 	import MdiGithub from '~icons/mdi/github';
 	import MdiLinkedin from '~icons/mdi/linkedin';
 	import MdiEmail from '~icons/mdi/email';
+	import MdiMapMarker from '~icons/mdi/map-marker';
 	import { inview } from '$lib/actions/inview';
 
 	let discordCopied = $state(false);
@@ -17,7 +18,11 @@
 <section id="contact" class="bg-mantle-alpha section-diagonal-alt w-full px-6 pb-20">
 	<div class="mx-auto max-w-3xl">
 		<h2 class="reveal mb-4 text-center text-4xl font-bold text-text" use:inview>Contact</h2>
-		<p class="section-quip reveal mb-10 text-center text-subtext" use:inview>professionally reachable, personally questionable</p>
+		<p class="section-quip reveal mb-6 text-center text-subtext" use:inview>professionally reachable, personally questionable</p>
+		<p class="reveal mb-10 flex items-center justify-center gap-1.5 text-sm text-subtext" use:inview>
+			<MdiMapMarker class="text-peach" />
+			Rhyl, UK
+		</p>
 		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 			<a
 				href="mailto:jack@mistaomega.dev"
