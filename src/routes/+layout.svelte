@@ -26,11 +26,19 @@
 <MetaTags
 	title="Jack Nash | Full-Stack Engineer"
 	description="Portfolio of Jack Nash, a full-stack engineer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK"
+	canonical="https://mistaomega.dev"
 	openGraph={{
-		title: 'Jack Nash',
+		url: 'https://mistaomega.dev',
+		title: 'Jack Nash | Full-Stack Engineer',
 		description:
 			'Portfolio of Jack Nash, a full-stack engineer with experience in Java, Spring Boot, C#, ASP.NET, and modern web technologies, based in the UK.',
-		type: 'website'
+		type: 'website',
+		siteName: 'Jack Nash'
+	}}
+	twitter={{
+		cardType: 'summary',
+		title: 'Jack Nash | Full-Stack Engineer',
+		description: 'Portfolio of Jack Nash, a full-stack engineer based in the UK.'
 	}}
 />
 

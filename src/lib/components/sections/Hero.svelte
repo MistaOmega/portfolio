@@ -35,7 +35,7 @@
 		<p
 			class="mt-4 mb-6 text-lg text-subtext opacity-0 sm:text-xl md:text-2xl animate-slidein [--slidein-delay:500ms]"
 		>
-			Full-Stack Engineer · technophile · arch user 🤮
+			Development Squad Lead · coding educator · arch user 🤮
 		</p>
 		<div class="flex flex-wrap justify-center gap-3 opacity-0 animate-slidein [--slidein-delay:700ms] 2xl:justify-start">
 			<a

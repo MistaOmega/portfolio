@@ -2,6 +2,7 @@
 	import type { PageData } from './$types';
 	import MdiGithub from '~icons/mdi/github';
 	import MdiArrowLeft from '~icons/mdi/arrow-left';
+	import MdiOpenInNew from '~icons/mdi/open-in-new';
 	import { MetaTags } from 'svelte-meta-tags';
 
 	let { data }: { data: PageData } = $props();
@@ -11,7 +12,7 @@
 <MetaTags
 	title="{project.title} | Jack Nash"
 	description={project.description}
-/>d
+/>
 
 <main class="mx-auto max-w-3xl px-6 pt-28 pb-20">
 	<a
@@ -31,17 +32,30 @@
 		{/each}
 	</div>
 
-	{#if project.githubUrl}
-		<a
-			href={project.githubUrl}
-			target="_blank"
-			rel="noopener noreferrer"
-			class="mt-6 inline-flex items-center gap-2 rounded-lg border border-peach/30 px-4 py-2 text-sm font-medium text-peach transition-colors hover:bg-peach/10"
-		>
-			<MdiGithub />
-			View on GitHub
-		</a>
-	{/if}
+	<div class="mt-6 flex flex-wrap gap-3">
+		{#if project.liveUrl}
+			<a
+				href={project.liveUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 rounded-lg border border-peach/30 px-4 py-2 text-sm font-medium text-peach transition-colors hover:bg-peach/10"
+			>
+				<MdiOpenInNew />
+				View site
+			</a>
+		{/if}
+		{#if project.githubUrl}
+			<a
+				href={project.githubUrl}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-flex items-center gap-2 rounded-lg border border-peach/30 px-4 py-2 text-sm font-medium text-peach transition-colors hover:bg-peach/10"
+			>
+				<MdiGithub />
+				View on GitHub
+			</a>
+		{/if}
+	</div>
 
 	<div class="mt-10 space-y-6">
 		<div class="rounded-xl border border-surface0 bg-crust p-6 dark:bg-mantle">

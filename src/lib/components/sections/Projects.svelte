@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { projects } from '$lib/data/projects';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import FeaturedProjectCard from '$lib/components/FeaturedProjectCard.svelte';
 	import { inview } from '$lib/actions/inview';
 </script>
 
@@ -10,8 +11,16 @@
 		<p class="section-quip reveal mb-10 text-center text-subtext" use:inview>evidence I do this outside of work too</p>
 		<div class="grid grid-cols-1 gap-5 pb-20 sm:grid-cols-2 lg:grid-cols-3">
 			{#each projects as project, i}
-				<div class="reveal" use:inview style="--card-index: {i}">
-					<ProjectCard {project} />
+				<div
+					class="reveal {project.featured ? 'sm:col-span-2 lg:col-span-3' : ''}"
+					use:inview
+					style="--card-index: {i}"
+				>
+					{#if project.featured}
+						<FeaturedProjectCard {project} />
+					{:else}
+						<ProjectCard {project} />
+					{/if}
 				</div>
 			{/each}
 		</div>

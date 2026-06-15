@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import { page } from '$app/state';
 	import LightSwitch from "$lib/components/LightSwitch.svelte";
 
 	let isMenuOpen = $state(false);
-
+	let activeSection = $state('main');
 
 	const navLinks = [
 		{ id: 'main', label: 'Home' },
-		{ id: 'skills', label: 'Skills' },
 		{ id: 'experience', label: 'Experience' },
 		{ id: 'projects', label: 'Projects' },
+		{ id: 'skills', label: 'Skills' },
 		{ id: 'contact', label: 'Contact' }
 	];
 
@@ -31,10 +32,43 @@
 
 	onMount(() => {
 		window.addEventListener('resize', () => {
-			if (window.innerWidth >= 768) {
-				isMenuOpen = false;
-			}
+			if (window.innerWidth >= 768) isMenuOpen = false;
 		});
+
+		const sectionIds = navLinks.map((l) => l.id);
+		const observers: IntersectionObserver[] = [];
+
+		// Track which sections are currently intersecting and pick the topmost one
+		const visible = new Set<string>();
+
+		const lastSectionId = sectionIds[sectionIds.length - 1];
+
+		const updateActive = () => {
+			for (const id of sectionIds) {
+				if (visible.has(id)) {
+					activeSection = id;
+					return;
+				}
+			}
+		};
+
+		for (const id of sectionIds) {
+			const el = document.getElementById(id);
+			if (!el) continue;
+			const isLast = id === lastSectionId;
+			const obs = new IntersectionObserver(
+				([entry]) => {
+					if (entry.isIntersecting) visible.add(id);
+					else visible.delete(id);
+					updateActive();
+				},
+				{ threshold: isLast ? 0 : 0.2 }
+			);
+			obs.observe(el);
+			observers.push(obs);
+		}
+
+		return () => observers.forEach((o) => o.disconnect());
 	});
 </script>
 
@@ -50,10 +84,11 @@
 			<!-- desktop -->
 			<ul class="hidden items-center gap-1 md:flex">
 				{#each navLinks as link}
+					{@const isActive = isHome && activeSection === link.id}
 					<li>
 						<a
 							href={isHome ? `#${link.id}` : `/#${link.id}`}
-							class="rounded-md px-3 py-1.5 text-sm transition-colors duration-150 hover:bg-surface0 hover:text-text"
+							class="rounded-md px-3 py-1.5 text-sm transition-colors duration-150 hover:bg-surface0 hover:text-text {isActive ? 'text-peach font-medium' : ''}"
 							onclick={(e) => handleNavClick(link.id, e)}
 						>
 							{link.label}
@@ -100,12 +135,12 @@
 
 	<!-- mobile menu -->
 	{#if isMenuOpen}
-		<ul class="border-t border-surface0/50 bg-base/95 px-4 py-2 md:hidden">
+		<ul transition:slide={{ duration: 200 }} class="border-t border-surface0/50 bg-base/95 px-4 py-2 md:hidden">
 			{#each navLinks as link}
 				<li>
 					<a
 						href={isHome ? `#${link.id}` : `/#${link.id}`}
-						class="block rounded-md px-3 py-2 text-sm hover:bg-surface0"
+						class="block rounded-md px-3 py-2 text-sm hover:bg-surface0 {isHome && activeSection === link.id ? 'text-peach font-medium' : ''}"
 						onclick={(e) => handleNavClick(link.id, e)}
 					>
 						{link.label}
