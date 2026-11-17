@@ -9,12 +9,20 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
 	{
+		company: 'Heywood Pension Technologies',
+		role: 'Senior Software Engineer',
+		startDate: 'Nov 2026',
+		description:
+			'Building Engage, the member-facing platform that gives pension scheme members online access to their pension: viewing their benefits, managing their details, and planning for retirement.'
+	},
+	{
 		company: 'Radius Telematics',
 		role: 'Development Squad Lead',
 		roleHistory: ['Full Stack Developer'],
 		startDate: 'Sep 2022',
+		endDate: 'Nov 2026',
 		description:
-			'Leading a development squad on Velocity, the customer-facing platform for the Kinesis suite, used by hundreds of thousands of businesses worldwide for fleet telematics and vehicle tracking. Work end-to-end across the React and Python stack, tying in backend services and contributing directly to Kinesis Core, a high-throughput message processor handling millions of device messages per day.'
+			'Led a development squad on Velocity, the customer-facing platform for the Kinesis suite, used by hundreds of thousands of businesses worldwide for fleet telematics and vehicle tracking. Worked end-to-end across the React and Python stack, tied in backend services, and contributed directly to Kinesis Core, a high-throughput message processor handling millions of device messages per day.'
 	},
 	{
 		company: 'Edge Hill University',
